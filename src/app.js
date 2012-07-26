@@ -95,7 +95,11 @@ App.Router = Em.Router.extend({
         employer: Ember.Route.extend({
         	route: '/employers/:employer_id',
         	connectOutlets: function(router, employer) {
-    			router.get('applicationController').connectOutlet('employer', employer);
+    			router.get('applicationController').connectOutlet({
+    				//name:'employer', 
+    				context:employer,
+    				viewClass:App.EmployerDetailView
+    			});
   			}
         }),
         // Actions
