@@ -15,7 +15,7 @@
     <footer></footer>
 </script>
 
-<script type="text/x-handlebars" data-template-name="employer">
+<script type="text/x-handlebars" data-template-name="employers">
 	<h2>Employers</h2>
     <ul>
     {{#each employer in controller}}   
@@ -33,12 +33,12 @@
     </ul>
 </script> 
 
-<script type="text/x-handlebars" data-template-name="employerDetail">
-    <h2>{{employer.name}}</h2>
+<script type="text/x-handlebars" data-template-name="employer">
+    <h2>{{name}}</h2>
     <div>
         <dl>
             <dt>Address</dt>
-            <dd>{{employer.address}}</dd>
+            <dd>{{address}}</dd>
         </dl>
     </div>
 </script>

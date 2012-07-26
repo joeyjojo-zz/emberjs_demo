@@ -60,9 +60,11 @@ Controllers
 */
 App.ApplicationController = Em.Controller.extend();
 
-App.EmployerController = Em.ArrayController.extend({
+App.EmployersController = Em.ArrayController.extend({
 	content: App.store.findAll(App.Employer)
 });
+
+App.EmployerController = Em.ObjectController.extend();
 
 
 App.EmployeeController = Em.ArrayController.extend({
@@ -87,7 +89,7 @@ App.Router = Em.Router.extend({
         	route: '/employers',
         	connectOutlets: function(router, context) {
                 router.get('applicationController').connectOutlet({
-                    name: 'employer'
+                    name: 'employers'
                 });
             }
         }),
@@ -96,9 +98,8 @@ App.Router = Em.Router.extend({
         	route: '/employers/:employer_id',
         	connectOutlets: function(router, employer) {
     			router.get('applicationController').connectOutlet({
-    				//name:'employer', 
-    				context:employer,
-    				viewClass:App.EmployerDetailView
+    				name:'employer', 
+    				context:employer
     			});
   			}
         }),
@@ -114,12 +115,12 @@ App.ApplicationView = Em.View.extend({
     templateName: 'application'
 });
 
-App.EmployerView = Em.View.extend({
-    templateName: 'employer'
+App.EmployersView = Em.View.extend({
+    templateName: 'employers'
 });
 
-App.EmployerDetailView = Em.View.extend({
-	templateName: 'employerDetail'
+App.EmployerView = Em.View.extend({
+	templateName: 'employer'
 });
 
 App.initialize();
