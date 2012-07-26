@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <title>BPT-RTI Prototype</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
     </ul>
 </script>
 
-<script type="text/x-handlebars" data-template-name="employee">
+<script type="text/x-handlebars" data-template-name="employees">
 	<h3>Employees</h2>
     <ul>
     {{#each employee in controller}}
@@ -41,6 +41,7 @@
             <dd>{{address}}</dd>
         </dl>
     </div>
+    {{outlet}}
 </script>
 
 	<script type="text/javascript" src="./libs/jquery-1.7.1.js"></script>

@@ -67,7 +67,7 @@ App.EmployersController = Em.ArrayController.extend({
 App.EmployerController = Em.ObjectController.extend();
 
 
-App.EmployeeController = Em.ArrayController.extend({
+App.EmployeesController = Em.ArrayController.extend({
 	content: App.store.findAll(App.Employee)
 })
 
@@ -95,13 +95,27 @@ App.Router = Em.Router.extend({
         }),
         // Individual employer detail
         employer: Ember.Route.extend({
+        	// display the employer detail
         	route: '/employers/:employer_id',
         	connectOutlets: function(router, employer) {
     			router.get('applicationController').connectOutlet({
     				name:'employer', 
     				context:employer
     			});
-  			}
+    			var employerController = router.get('employerController');
+			    employerController.connectOutlet('employees', employerController.get('employees'));
+  			}/*,
+  			// show the employees for the employer
+  			index: Ember.State.extend({
+    			route: '/',
+    			redirectsTo: 'employees'
+  			}),
+  			employees: Ember.State.extend({
+			    route: '/employees',
+			    connectOutlets: function(router) {
+			      
+			    }
+			})*/
         }),
         // Actions
         showEmployer: Ember.State.transitionTo('employer')
@@ -121,6 +135,10 @@ App.EmployersView = Em.View.extend({
 
 App.EmployerView = Em.View.extend({
 	templateName: 'employer'
+});
+
+App.EmployeesView = Em.View.extend({
+	templateName: 'employees'
 });
 
 App.initialize();
