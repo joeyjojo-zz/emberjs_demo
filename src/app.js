@@ -97,7 +97,9 @@ App.Router = Em.Router.extend({
         	connectOutlets: function(router, employer) {
     			router.get('applicationController').connectOutlet('employer', employer);
   			}
-        })
+        }),
+        // Actions
+        showEmployer: Ember.State.transitionTo('employer')
      })
 });
 
@@ -110,6 +112,10 @@ App.ApplicationView = Em.View.extend({
 
 App.EmployerView = Em.View.extend({
     templateName: 'employer'
+});
+
+App.EmployerDetailView = Em.View.extend({
+	templateName: 'employerDetail'
 });
 
 App.initialize();
