@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+
+<script type="text/x-handlebars" data-template-name="application">
+    <header>
+        <h1>BPT-RTI Prototype</h1>
+    </header>
+    {{outlet}}
+    <footer></footer>
+</script>
+
+<script type="text/x-handlebars" data-template-name="employer">
+	<h2>Employers</h2>
+    <ul>
+    {{#each employer in controller}}
+    
+        <li>{{employer.name}}</li>
+    {{/each}}
+    </ul>
+</script>
+
+<script type="text/x-handlebars" data-template-name="employee">
+	<h3>Employees</h2>
+    <ul>
+    {{#each employee in controller}}
+        <li>{{employee.name}}</li>
+    {{/each}}
+    </ul>
+</script> 
+
+	<script type="text/javascript" src="./libs/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="./libs/ember.js"></script>
+	<script type="text/javascript" src="./libs/ember-data.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
