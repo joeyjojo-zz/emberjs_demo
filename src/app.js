@@ -28,12 +28,14 @@ App.Employer.FIXTURES = [
 	{
 	    id: 1,
 	    name: "Test Employer",
-	    address: "123 Fake Street, Fake Town, FA12 3KE"
+	    address: "123 Fake Street, Fake Town, FA12 3KE",
+	    employees: [1, 3]
 	},
 	{
 	    id: 2,
 	    name: "Another Test Employer",
-	    address: "Some address"
+	    address: "Some address",
+	    employees: [2]
 	}
 ];
 
