@@ -28,7 +28,7 @@
 	<h3>Employees</h2>
     <ul>
     {{#each employee in controller}}
-        <li>{{employee.name}}</li>
+        <li><a>{{employee.name}}</a></li>
     {{/each}}
     </ul>
 </script> 
@@ -41,6 +41,7 @@
             <dd>{{address}}</dd>
         </dl>
     </div>
+    <a {{action showEmployees href=true}}>Show employees</a>
     {{outlet}}
 </script>
 

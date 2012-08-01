@@ -96,7 +96,7 @@ App.Router = Em.Router.extend({
             }
         }),
         // Individual employer detail
-        employer: Ember.Route.extend({
+        employer: Em.Route.extend({
         	// display the employer detail
         	route: '/employers/:employer_id',
         	connectOutlets: function(router, employer) {
@@ -104,23 +104,39 @@ App.Router = Em.Router.extend({
     				name:'employer', 
     				context:employer
     			});
-    			var employerController = router.get('employerController');
-			    employerController.connectOutlet('employees', employerController.get('employees'));
-  			}/*,
+  			},/*
+  			index: Em.Route.extend({
+    			route: '/',
+    			redirectsTo: 'employees'
+  			}),*/
+  			/*
   			// show the employees for the employer
   			index: Ember.State.extend({
     			route: '/',
     			redirectsTo: 'employees'
   			}),
-  			employees: Ember.State.extend({
-			    route: '/employees',
-			    connectOutlets: function(router) {
+  			employee: Em.Route.extend({
+			    route: '/employees/:employee_id',
+			    connectOutlets: function(router, employee) {
 			      
 			    }
-			})*/
+			}),
+            */
+            employees: Em.Route.extend({
+                route: '/employees',
+                connectOutlets: function(router) {
+                    var employerController = router.get('employerController');
+                    employerController.connectOutlet('employees', employerController.get('employees'));
+                }
+            }),
+        	// Actions
+        	showEmployees: Em.Route.transitionTo('employees')
+            
         }),
+        // All employees
+        
         // Actions
-        showEmployer: Ember.State.transitionTo('employer')
+        showEmployer: Em.Route.transitionTo('employer')
      })
 });
 
