@@ -19,7 +19,7 @@
 	<h2>Employers</h2>
     <ul>
     {{#each employer in controller}}   
-        <li><a {{action showEmployer context="employer" href=true}}>{{employer.name}}</a></li>
+        <li><a {{action showEmployer employer}}>{{employer.name}}</a></li>
     {{/each}}
     </ul>
 </script>
